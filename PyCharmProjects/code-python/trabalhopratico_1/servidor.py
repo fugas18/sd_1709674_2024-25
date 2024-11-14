@@ -8,7 +8,7 @@ SERVER_PORT = 5000
 # Função que calcula os primeiros x múltiplos de 9 e retorna a soma
 def Multiplo9(x):
     if x <= 0:
-        return "O valor de x deve ser maior que 0."
+        return "Erro! O valor de x deve ser maior que 0."
 
     # Calcula os primeiros x múltiplos de 9
     multiplos = [9 * i for i in range(1, x + 1)]
@@ -16,7 +16,7 @@ def Multiplo9(x):
 
     # Retorna tanto os múltiplos quanto a soma
     multiplos_str = ", ".join(map(str, multiplos))
-    return f"Múltiplos de 9: {multiplos_str}. Soma: {soma}"
+    return f"Múltiplos de 9: {multiplos_str}.\nSoma: {soma}"
 
 
 # Função para atender o cliente
@@ -32,7 +32,7 @@ def handle_client(client_socket):
             try:
                 x = int(data)
             except ValueError:
-                client_socket.send("Entrada inválida. Envie um número inteiro.".encode())
+                client_socket.send("Erro! Insira um número inteiro.".encode())
                 continue
 
             # Calcula os múltiplos de 9 e envia a resposta

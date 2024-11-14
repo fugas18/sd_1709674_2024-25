@@ -9,7 +9,7 @@ def connect_to_server():
     client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     client_socket.connect((SERVER_HOST, SERVER_PORT))
 
-    print("Digite um número inteiro para calcular os primeiros múltiplos de 9:")
+    print("Insira um número inteiro para calcular os primeiros múltiplos de 9:")
     print("Digite 'sair' para encerrar.")
 
     while True:
@@ -22,7 +22,7 @@ def connect_to_server():
 
         # Verifica se o comando é um número inteiro
         if not command.isdigit():
-            print("Por favor, insira um número inteiro válido.")
+            print("Por favor, insira um número inteiro positivo.")
             continue
 
         # Envia o comando para o servidor
