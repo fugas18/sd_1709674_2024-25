@@ -1,3 +1,5 @@
+import socket
+
 # Função para calcular os primeiros x múltiplos de 9 e a sua soma
 def Multiplo9(x):
     if x <= 0:
@@ -25,4 +27,21 @@ def handle_client(client_socket):
         client_socket.send(response.encode())
     finally:
         client_socket.close()
-        
+    
+# Configuração do servidor
+def main():
+    server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server.bind(("localhost", 5000))  # Define o endereço IP e a porta para o servidor
+    server.listen(5)  # Limita o número de conexões em espera
+
+    print("Servidor a aguardar conexões...")
+
+    # Ciclo para aceitar e gerir conexões de clientes
+    while True:
+        client_socket, addr = server.accept()
+        print(f"Conexão estabelecida com {addr}")
+        handle_client(client_socket)
+
+
+if __name__ == "__main__":
+    main()
