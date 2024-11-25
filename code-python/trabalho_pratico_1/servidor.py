@@ -7,11 +7,11 @@ def Multiplo9(x):
 
     # Calcula os múltiplos de 9 e a sua soma
     multiplos = [9 * i for i in range(1, x + 1)]
-    soma = sum(multiplos)
 
     # Formata a resposta como uma string
     multiplos_str = ", ".join(map(str, multiplos))
-    return f"\nMúltiplos de 9: {multiplos_str}.\nSoma: {soma}"
+    return f"\nMúltiplos de 9: {multiplos_str}"
+
 
 # Função para gerir a comunicação com o cliente
 def handle_client(client_socket):
